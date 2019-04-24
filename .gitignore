@@ -1,0 +1,3 @@
+# do not add images to repo
+*.img.gz
+*.img
