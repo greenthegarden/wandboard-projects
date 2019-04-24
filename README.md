@@ -1,17 +1,29 @@
-# Wandboard image
+# Wandboard Projects
 
-## Creating image
+## Creating Debian Image
 
 See https://wiki.debian.org/InstallingDebianOn/Wandboard
 
-Download firmware and partion files using
+Need netboot firmware and partition image files:
 
-```bash
-wget http://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/firmware.Wandboard.img.gz
-wget http://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/partition.img.gz
-```
+### Jessie
 
-Create image using `./create_image.sh` which downloads the files above and then concatenates the images using
+* http://ftp.debian.org/debian/dists/jessie/main/installer-armhf/20150422+deb8u5/images/netboot/SD-card-images/firmware.Wandboard_Quad.img.gz
+* http://ftp.debian.org/debian/dists/jessie/main/installer-armhf/20150422+deb8u5/images/netboot/SD-card-images/partition.img.gz
+
+### Stretch
+
+* http://ftp.debian.org/debian/dists/stretch/main/installer-armhf/current/images/netboot/SD-card-images/firmware.Wandboard.img.gz
+* http://ftp.debian.org/debian/dists/stretch/main/installer-armhf/current/images/netboot/SD-card-images/partition.img.gz
+
+### Current
+
+* http://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/firmware.Wandboard.img.gz
+* http://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/partition.img.gz
+
+**NOTE: Only Jessie versions appear to work**
+
+Create image using [`./create_image.sh`](./create_image.sh) which downloads the files above and then concatenates the images using
 
 ```bash
 zcat firmware.Wandboard.img.gz partition.img.gz > debian-installer-wandboard.img
@@ -38,9 +50,3 @@ chmod +x check-config.sh
 ## Alternative
 
 See https://www.digikey.com/eewiki/display/linuxonarm/Wandboard#Wandboard-Debian9
-
-```bash
-
-wget -c https://rcn-ee.com/rootfs/eewiki/minfs/debian-9.8-minimal-armhf-2019-02-16.tar.xz
-sha256sum debian-9.8-minimal-armhf-2019-02-16.tar.xz
-40643313dbfc4bc9487455cb6e839cc110e226ac2e9046a2f59f05e563802943  debian-9.8-minimal-armhf-2019-02-16.tar.xz
